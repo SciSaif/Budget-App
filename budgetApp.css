@@ -1,0 +1,98 @@
+* {margin: 0%; padding: 0; box-sizing: border-box;}
+
+body {
+    height: 100vh;
+    background: linear-gradient(to right,rgb(36, 35, 35), rgb(2, 87, 75));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+
+.container{ 
+    position: absolute;
+    /* bottom: 5vh; */
+    background: rgba(0, 0, 0, 0.63);
+    width: 100vw;
+    height: 100vh;
+}
+
+.add-box {
+    position: absolute;
+    bottom: 0vh;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    /* background: rgb(255, 255, 255); */
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    border-radius: 80% 0 0 0 ;
+    box-shadow: -1px -1px 10px rgba(211, 209, 209, 0.562);
+    cursor: crosshair;
+}
+
+ul{
+    height: 90vh;
+}
+li{
+    color: white;
+    background: rgba(54, 54, 54, 0.425);
+    margin: 10px 0;
+    border-radius: 0 2000px 2000px 0;
+    width: 90vw;
+    min-height: 65px;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 0.5rem;
+ 
+    overflow: hidden;
+   
+}
+.animateli {
+    animation-name: AnimateLi;
+    animation-duration: 0.5s;
+}
+
+@keyframes AnimateLi {
+    from{width: 90vw; height: 65px;border-radius: 0 2000px 2000px 0;}
+    to{width: 0; height: 0;border-radius: none;}
+}
+
+li p {
+    font-size: 18px;
+}
+
+.fa-trash {
+    /* font-size: 0.5rem; */
+    border-right: 1px solid white;
+    padding: 10px 0;
+    padding-right: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    color: rgba(203, 241, 191, 0.74);
+}
+
+.ex-name {
+    /* background: blue; */
+    padding: 10px;
+    width: 50vw;
+    border-right: 1px solid white;
+    margin-right: 10px;
+    overflow-x: auto ;
+}
+
+
+
+
+
+
+
+/* invisible */
+.invisible {
+    display: none;
+}
