@@ -94,15 +94,18 @@ li p {
     
 }
 .animate-add-box-open {
-    animation: addboxanimateopen 0.2s;
+    animation: addboxanimateopen 0.5s;
     animation-fill-mode: forwards;
     border: none;
     background: rgba(61, 61, 61, 0.76);
 
 }
 .animate-add-box-close {
-    animation: addboxanimateclose 0.2s;
+    animation: addboxanimateclose 0.5s;
     animation-fill-mode: forwards;
+    background: rgba(61, 61, 61, 0.76);
+    border: none;
+
 }
 @keyframes addboxanimateopen {
     from{
