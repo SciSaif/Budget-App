@@ -73,20 +73,33 @@ li p {
 
 
 .add-box, .add-box-opt {
-    position: absolute;
+    position: fixed;
     bottom: 0vh;
     right: 0vw;
     width: 100px;
     min-height: 100px;
     border-top: 2px solid white;
-    border-left: 2px solid white;
+    /* border-left: 2px solid white; */
     border-radius: 80% 0 0 0 ;
-    box-shadow: -1px -1px 10px rgba(211, 209, 209, 0.562);
+    box-shadow: -1px -1px 5px rgb(255, 255, 255);
     cursor: crosshair;
 }
 .add-box {
     z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+.fa-chevron-left {
+    color: white;
+    transform: rotate(50deg) translate(5px, 0px);
+    transition: all 0.2s ease;
+}
+.add-box:active .fa-chevron-left {
+    color: rgb(241, 21, 21);
+    transform: rotate(-50deg) translate(5px, 0px);
+}
+
 .add-box-opt {
     width: 0px;
     height: 0px;
@@ -134,10 +147,34 @@ li p {
 
     }
 }
-.add-box-opt p{
-    position: relative;
-    top: 20%;
-    left: 50%;
+.add-box-opt{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+
+    overflow: hidden;
+}
+
+.display-box {
+    background: blue;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.budget-box {
+    background: green;
+}
+.expense-box {
+    background: rgb(0, 113, 128);
+}
+.balance-box {
+    background: rgb(128, 115, 0);
+}
+
+
+.fas {
     color: white;
 }
 

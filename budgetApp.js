@@ -3,14 +3,16 @@ const li = document.querySelector('li');
 const addBox = document.querySelector('.add-box');
 const addBoxOpt = document.querySelector('.add-box-opt');
 
-trash.addEventListener('click', () =>{
+function hideitem() {
+
     li.classList.add('animateli');
     setTimeout(function(){
-    li.classList.remove('animateli');
-    li.classList.add('invisible');
-    
-    },500)
-})
+    li.remove(li);
+    },300)
+
+}
+
+trash.addEventListener('click', hideitem)
 
 function openDisplay() {
     if (addBoxOpt.classList.contains('animate-add-box-open')) {
