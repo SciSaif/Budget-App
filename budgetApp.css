@@ -2,14 +2,62 @@
 
 body {
     height: 100vh;
-    background: linear-gradient(to right,rgb(36, 35, 35), rgb(2, 87, 75));
+    background: linear-gradient(to right,rgb(36, 35, 35), #b6e705);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    font-family: sans-serif;
 }
 
+/* SAIF START-------------------------------------------------------- */
+.saif {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.719);
+    z-index: 20;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 18px;
+}
+.saif p:nth-child(1) {
+    font-size: 2vw;
+    margin-bottom: 20px;
+    transition: all 1s cubic-bezier(.34,2.38,.22,1);
+}
+.saif p:nth-child(2) {
+    font-size: 5vw;
+}
+.saif p:nth-child(3) {
+    font-size: 7vw;
+    margin-bottom: 20px;
+}
+
+.animateBudget {
+    animation-name: animatebudget;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(.55,.91,0,1.77);
+}
+
+@keyframes animatebudget {
+    0%{
+    font-size: 2vw;
+    }
+    90%{
+
+    }
+    100%{
+    font-size: 12vw;
+    }
+}
+/* ----------------------------------------------------------- */
 
 
 .container{ 
@@ -106,14 +154,14 @@ li p {
     
 }
 .animate-add-box-open {
-    animation: addboxanimateopen 0.5s;
+    animation: addboxanimateopen 0.2s;
     animation-fill-mode: forwards;
     border: none;
     background: rgba(7, 7, 7, 0.76);
 
 }
 .animate-add-box-close {
-    animation: addboxanimateclose 0.5s;
+    animation: addboxanimateclose 0.2s;
     animation-fill-mode: forwards;
     background: rgba(7, 7, 7, 0.76);
     border: none;
