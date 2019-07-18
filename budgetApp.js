@@ -12,9 +12,9 @@ var colorLine = `linear-gradient(to right,rgb(36, 35, 35), ${color})`;
 bodyb.style.background = colorLine;
 
 
-setTimeout(()=>{
-    saif.classList.add('invisible')
-},3000)
+// setTimeout(()=>{
+//     saif.classList.add('invisible')
+// },3000)
 
 function hideitem() {
 
@@ -30,8 +30,11 @@ trash.addEventListener('click', hideitem)
 function openDisplay() {
     if (addBoxOpt.classList.contains('animate-add-box-open')) {
         addBoxOpt.classList.replace('animate-add-box-open','animate-add-box-close')
+        addBoxOpt.classList.add('invisible')
     }else
     {
+
+        addBoxOpt.classList.remove('invisible')
         addBoxOpt.classList.add('animate-add-box-open')
         addBoxOpt.classList.replace('animate-add-box-close','animate-add-box-open')
     }

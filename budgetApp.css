@@ -120,6 +120,7 @@ li p {
 }
 
 
+/* add box and display ---------------------------------------------- */
 .add-box, .add-box-opt {
     position: fixed;
     bottom: 0vh;
@@ -130,13 +131,14 @@ li p {
     /* border-left: 2px solid white; */
     border-radius: 80% 0 0 0 ;
     box-shadow: -1px -1px 5px rgb(255, 255, 255);
-    cursor: crosshair;
 }
 .add-box {
     z-index: 10;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: crosshair;
+
 }
 .fa-chevron-left {
     color: white;
@@ -204,26 +206,72 @@ li p {
 }
 
 .display-box {
-    background: blue;
     height: 20vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.budget-box {
+    /* background: rgba(170, 127, 34, 0.212); */
+    /* margin-left: 50px; */
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-}
-.budget-box {
-    background: green;
+    height: 100%;
+    /* opacity: 0.2; */
+    border-right: 1px solid rgba(255, 255, 255, 0.397);
+
 }
 .expense-box {
-    background: rgb(0, 113, 128);
+    /* background: rgba(158, 18, 18, 0.212); */
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    /* opacity: 0.2; */
+    border-right: 1px solid rgba(255, 255, 255, 0.397);
+
 }
 .balance-box {
-    background: rgb(128, 115, 0);
+    /* background: rgba(17, 211, 10, 0.212); */
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    /* opacity: 0.2; */
+
 }
 
+.display-icons {
+    color: rgb(255, 255, 255);
+    opacity: 0.3;
+}
 
-.fas {
+.display-heading {
+    position: fixed;
+    top: 30px;
     color: white;
+    font-size: 20px;
+
+}
+.display-value {
+    position: fixed;
+    top: 60px;
+    color: rgb(255, 255, 255);
+    font-size: 7vw;
+    
+}
+.b {
+    text-shadow: 1px 1px 5px rgb(207, 177, 6);
+}
+.e {
+    text-shadow: 1px 1px 5px rgb(216, 10, 10);
+}
+.ba {
+    text-shadow: 1px 1px 5px rgb(10, 241, 2);
 }
 
 
