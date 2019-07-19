@@ -159,7 +159,7 @@ li p {
     animation: addboxanimateopen 0.2s;
     animation-fill-mode: forwards;
     border: none;
-    background: rgba(7, 7, 7, 0.76);
+    background: rgba(7, 7, 7, 0.918);
 
 }
 .animate-add-box-close {
@@ -314,6 +314,7 @@ li p {
     font-size: 20px;
     cursor: pointer;
 }
+
 .change-budget-label {
     transition: all 1s ease;
     width: 40vw;
@@ -322,14 +323,14 @@ li p {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: red;
 }
-/* .fa-arrow-right {
+.fa-arrow-right {
     transition-property: all;
     transition-duration: 1s;
     transition-timing-function: cubic-bezier(.63,.75,.16,1.56);
     transform: rotate(0deg);
-}; */
+}
+
 
 
 
