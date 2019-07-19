@@ -18,12 +18,11 @@ var colorLine = `linear-gradient(to right,rgb(36, 35, 35), ${color})`;
 bodyb.style.background = colorLine;
 
 
-// setTimeout(()=>{
-//     saif.classList.add('invisible')
-// },3000)
+setTimeout(()=>{
+    saif.classList.add('invisible')
+},3000)
 
 function hideitem() {
-
     li.classList.add('animateli');
     setTimeout(function(){
     li.remove(li);

@@ -50,9 +50,7 @@ body {
     0%{
     font-size: 2vw;
     }
-    90%{
-
-    }
+    
     100%{
     font-size: 12vw;
     }
@@ -73,7 +71,7 @@ ul{
 }
 li{
     color: white;
-    background: rgba(54, 54, 54, 0.425);
+    background: rgba(0, 0, 0, 0.233);
     margin: 10px 0;
     border-radius: 0 2000px 2000px 0;
     width: 90vw;
@@ -263,7 +261,8 @@ li p {
     position: fixed;
     top: 65px;
     color: rgb(255, 255, 255);
-    font-size: 7.5vw;
+    font-size: 25px;
+    
     
 }
 .b {
