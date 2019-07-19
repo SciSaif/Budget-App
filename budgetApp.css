@@ -317,20 +317,19 @@ li p {
 .change-budget-label {
     transition: all 1s ease;
     width: 40vw;
-    /* background: red; */
     white-space: nowrap;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background: red; */
+    background: red;
 }
-.fa-arrow-right {
+/* .fa-arrow-right {
     transition-property: all;
     transition-duration: 1s;
     transition-timing-function: cubic-bezier(.63,.75,.16,1.56);
     transform: rotate(0deg);
-};
+}; */
 
 
 
