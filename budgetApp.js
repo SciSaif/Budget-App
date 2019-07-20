@@ -1,3 +1,4 @@
+document.documentElement.requestFullscreen();
 
 const trash = document.querySelector('.fa-trash');
 const li = document.querySelector('li');
