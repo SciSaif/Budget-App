@@ -96,23 +96,52 @@ li{
 
 li p {
     font-size: 18px;
+
 }
 
 .fa-trash {
     /* font-size: 0.5rem; */
-    border-right: 1px solid white;
+    /* border-right: 1px solid white; */
     padding: 10px 0;
     padding-right: 10px;
     margin-right: 10px;
     cursor: pointer;
-    color: rgba(203, 241, 191, 0.74);
+    color: rgba(93, 95, 95, 0.74);
 }
+.fa-trash:hover {
+    animation: trashAnimation 0.5s cubic-bezier(.63,.75,.16,1.56);
+    animation-fill-mode: forwards;
+}
+@keyframes trashAnimation {
+    0% {
+        transform: rotate(0deg);
+        color: rgba(93, 95, 95, 0.74);
+    }
+    25% {
+        transform: rotate(45deg);
+    }
+    50% {
+        transform: rotate(-45deg);
+    }
+    75% {
+        transform: rotate(45deg);
+    }
+    100% {
+        transform: rotate(0deg);
+        color: rgba(255, 13, 13, 0.74)
+    }
+}
+
+
+
 
 .ex-name {
     /* background: blue; */
     padding: 10px;
     width: 50vw;
     border-right: 1px solid white;
+    border-left: 1px solid white;
+    
     margin-right: 10px;
     overflow-x: auto ;
 }
@@ -261,18 +290,18 @@ li p {
     position: fixed;
     top: 65px;
     color: rgb(255, 255, 255);
-    font-size: 25px;
+    font-size: 27px;
     
     
 }
 .b {
-    text-shadow: 1px 1px 5px rgb(207, 177, 6);
+    text-shadow: 1px 1px 4px rgb(207, 177, 6);
 }
 .e {
-    text-shadow: 1px 1px 5px rgb(216, 10, 10);
+    text-shadow: 1px 1px 4px rgb(216, 10, 10);
 }
 .ba {
-    text-shadow: 1px 1px 5px rgb(10, 241, 2);
+    text-shadow: 1px 1px 4px rgb(10, 241, 2);
 }
 
 /* add expense and change budget ------------------------------------ */
@@ -355,6 +384,50 @@ li p {
 }
 
 
+/* Expense part */
+
+.add-expense {
+    align-items: center;
+    /* background: rgb(255, 255, 255); */
+    color: white;
+    border-top: 1px solid rgba(255, 255, 255, 0.486);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.486);
+    margin-top: 10px;
+    padding: 20px 10px 10px 10px;
+
+}
+.add-expense p {
+    font-size: 20px;
+
+}
+.add-expense input {
+    width: 100%;
+    height: 50px;
+    margin: 10px 0 10px 0;
+    font-size: 20px;
+    border-radius: 20px;
+    border: none;
+    padding: 10px;
+}
+.add-expense-btn {
+    width: 50%;
+    height: 50px;
+    border-radius: 20px;
+    font-size: 23px;
+    background: blue;
+    border: none;
+    color: white;
+    margin-top: 10px;
+
+}
+
+
+
+
+
+
+
+
 /* hide arrows of number input */
 input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -364,7 +437,6 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 input[type="number"] {
     -moz-appearance: textfield;
 }
-
 
 /* invisible */
 .invisible {

@@ -10,21 +10,30 @@ const changeBudgetLabel = document.querySelector('.change-budget-label');
 const changeBudgetBtnArrow = document.querySelector('.fa-arrow-right');
 
 
-
+//change the background colour
 const colours = ["#1ee9df", "#087e78", "#074ac7", "#074ac7", "#0f45a8", "#a80f9b", "#a80f4f", "#d31c1c", "#04c96d", "#fafafa", "#05e736", "#b6e705"];
 let random = Math.floor(Math.random()*colours.length);
 const color = colours[random];
 var colorLine = `linear-gradient(to right,rgb(36, 35, 35), ${color})`;
 bodyb.style.background = colorLine;
-myFunction(color);
-function myFunction(headColor) {
+
+//change the chrome header colour 
+HeaderColor(color);
+function HeaderColor(headColor) {
     var x = document.createElement("META");
     x.setAttribute("name", "theme-color");
     x.setAttribute("content", headColor);
     document.head.appendChild(x);
-  }
+}
+
+//change the button colour according to background colour
+ButtonColor(color)
+function ButtonColor(BtnColor) {
+changeBudgetBtn.style.background = color;
+}
 
 
+//Creadits display
 setTimeout(()=>{
     saif.classList.add('invisible')
 },3000)
