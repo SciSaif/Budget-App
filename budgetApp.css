@@ -1,8 +1,10 @@
 * {margin: 0%; padding: 0; box-sizing: border-box;}
-
+:root {
+    --base: white;
+}
 body {
     height: 100vh;
-    background: linear-gradient(to right,rgb(36, 35, 35), #b6e705);
+    background: linear-gradient(to right,rgb(36, 35, 35), var(--base));
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -333,7 +335,7 @@ li p {
 
 .change-budget-btn{
     border: none;
-    background: rgb(8, 236, 236);
+    background: var(--base);
     color: white;
     width: 60vw;
     height: 50px;
@@ -393,32 +395,48 @@ li p {
     border-top: 1px solid rgba(255, 255, 255, 0.486);
     border-bottom: 1px solid rgba(255, 255, 255, 0.486);
     margin-top: 10px;
-    padding: 20px 10px 10px 10px;
+    padding: 20px 10px 10px 0px;
 
 }
 .add-expense p {
     font-size: 20px;
-
+    margin-left: 10px;
 }
 .add-expense input {
     width: 100%;
-    height: 50px;
+    height: 40px;
     margin: 10px 0 10px 0;
     font-size: 20px;
+    color: white;
     border-radius: 20px;
     border: none;
+    border-bottom: 2px solid var(--base);
+    background: transparent;
     padding: 10px;
+}
+.add-expense input:focus {
+    border-bottom: 2px solid red;;
+    
 }
 .add-expense-btn {
     width: 50%;
     height: 50px;
     border-radius: 20px;
     font-size: 23px;
-    background: blue;
+    background: transparent;
     border: none;
+    border-right: 2px solid var(--base);
+    border-bottom: 2px solid var(--base);
     color: white;
     margin-top: 10px;
-
+    cursor: pointer;
+}
+.add-expense-btn:hover {
+    border-right: 2px solid rgb(255, 0, 0);
+    border-bottom: 2px solid rgb(255, 0, 0);
+}
+.add-expense-btn:Active {
+    border: none;
 }
 
 
