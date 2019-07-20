@@ -22,7 +22,7 @@ myFunction(color);
 function myFunction(headColor) {
     var x = document.createElement("META");
     x.setAttribute("name", "theme-color");
-    x.setAttribute("content", "#1ee9df");
+    x.setAttribute("content", headColor);
     document.head.appendChild(x);
   }
 
