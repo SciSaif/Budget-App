@@ -1,4 +1,3 @@
-addToHomescreen();
 
 const trash = document.querySelector('.fa-trash');
 const li = document.querySelector('li');
