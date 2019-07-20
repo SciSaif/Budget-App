@@ -1,3 +1,5 @@
+addToHomescreen();
+
 const trash = document.querySelector('.fa-trash');
 const li = document.querySelector('li');
 const addBox = document.querySelector('.add-box');
