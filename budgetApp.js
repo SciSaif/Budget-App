@@ -1,5 +1,3 @@
-document.documentElement.requestFullscreen();
-
 const trash = document.querySelector('.fa-trash');
 const li = document.querySelector('li');
 const addBox = document.querySelector('.add-box');
@@ -18,13 +16,13 @@ let random = Math.floor(Math.random()*colours.length);
 const color = colours[random];
 var colorLine = `linear-gradient(to right,rgb(36, 35, 35), ${color})`;
 bodyb.style.background = colorLine;
-myFunction(color);
-function myFunction(headColor) {
-    var x = document.createElement("META");
-    x.setAttribute("name", "theme-color");
-    x.setAttribute("content", headColor);
-    document.head.appendChild(x);
-  }
+// myFunction(color);
+// function myFunction(headColor) {
+//     var x = document.createElement("META");
+//     x.setAttribute("name", "theme-color");
+//     x.setAttribute("content", headColor);
+//     document.head.appendChild(x);
+//   }
 
 
 setTimeout(()=>{
