@@ -8,6 +8,9 @@ const changeBudgetInput = document.querySelector('.budget-change-val');
 const changeBudgetBtn = document.querySelector('.change-budget-btn');
 const changeBudgetLabel = document.querySelector('.change-budget-label');
 const changeBudgetBtnArrow = document.querySelector('.fa-arrow-right');
+const expenseNameVal = document.querySelector('.expense-name-val');
+const expenseAmtVal = document.querySelector('.expense-amt-val');
+const addExpenseBtn = document.querySelector('.add-expense-btn');
 
 
 
@@ -33,9 +36,9 @@ document.documentElement.style.setProperty("--base", color);
 
 
 //Credits display
-setTimeout(()=>{
-    saif.classList.add('invisible')
-},3000)
+// setTimeout(()=>{
+//     saif.classList.add('invisible')
+// },3000)
 
 function hideitem() {
     li.classList.add('animateli');
@@ -71,3 +74,23 @@ function changeBudget() {
 
 changeBudgetBtn.addEventListener('click', changeBudget);
 
+
+//when add expense btn is clicked
+
+function addExpense() {
+    const btnText = addExpenseBtn.innerHTML;
+    if (expenseNameVal.value == "" || expenseAmtVal.value == "") {
+        addExpenseBtn.innerHTML = `<p>!!</P>`
+        addExpenseBtn.firstChild.classList.add('exAnimation')
+        setTimeout(() => {
+            addExpenseBtn.innerHTML = btnText;
+        },2000);
+    }else {
+        addExpenseBtn.innerHTML = `<p>Expense Added Successfully!</P>`
+        setTimeout(() => {
+            addExpenseBtn.innerHTML = btnText;
+        },2000);
+    }
+} 
+
+addExpenseBtn.addEventListener('click', addExpense)

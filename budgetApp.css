@@ -114,25 +114,7 @@ li p {
     animation: trashAnimation 0.5s cubic-bezier(.63,.75,.16,1.56);
     animation-fill-mode: forwards;
 }
-@keyframes trashAnimation {
-    0% {
-        transform: rotate(0deg);
-        color: rgba(93, 95, 95, 0.74);
-    }
-    25% {
-        transform: rotate(45deg);
-    }
-    50% {
-        transform: rotate(-45deg);
-    }
-    75% {
-        transform: rotate(45deg);
-    }
-    100% {
-        transform: rotate(0deg);
-        color: rgba(255, 13, 13, 0.74)
-    }
-}
+
 
 
 
@@ -325,7 +307,7 @@ li p {
     height: 50px;
     border: none;
     background: rgb(255, 255, 255);
-    color: rgba(11, 235, 235, 0.582);
+    color: var(--base);
     text-shadow: 1px 1px 1px black;
     font-size: 20px;
     transition: all 0.5s ease;
@@ -419,7 +401,7 @@ li p {
     
 }
 .add-expense-btn {
-    width: 50%;
+    width: 100%;
     height: 50px;
     border-radius: 20px;
     font-size: 23px;
@@ -429,7 +411,9 @@ li p {
     border-bottom: 2px solid var(--base);
     color: white;
     margin-top: 10px;
+    padding: 10px;
     cursor: pointer;
+
 }
 .add-expense-btn:hover {
     border-right: 2px solid rgb(255, 0, 0);
@@ -439,6 +423,10 @@ li p {
     border: none;
 }
 
+/* !! animation */
+.exAnimation {
+    animation: trashAnimation 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
 
 
 
@@ -446,6 +434,25 @@ li p {
 
 
 
+@keyframes trashAnimation {
+    0% {
+        transform: rotate(0deg);
+        color: rgba(93, 95, 95, 0.74);
+    }
+    25% {
+        transform: rotate(45deg);
+    }
+    50% {
+        transform: rotate(-45deg);
+    }
+    75% {
+        transform: rotate(45deg);
+    }
+    100% {
+        transform: rotate(0deg);
+        color: rgba(255, 13, 13, 0.74)
+    }
+}
 /* hide arrows of number input */
 input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
