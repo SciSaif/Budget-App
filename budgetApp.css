@@ -154,14 +154,14 @@ li p {
     
 }
 .animate-add-box-open {
-    animation: addboxanimateopen 0.2s;
+    animation: addboxanimateopen 0.1s;
     animation-fill-mode: forwards;
     border: none;
     background: rgba(7, 7, 7, 0.918);
 
 }
 .animate-add-box-close {
-    animation: addboxanimateclose 0.2s;
+    animation: addboxanimateclose 0.1s;
     animation-fill-mode: forwards;
     background: rgba(7, 7, 7, 0.76);
     border: none;
@@ -297,7 +297,9 @@ li p {
     color: rgba(11, 235, 235, 0.582);
     text-shadow: 1px 1px 1px black;
     font-size: 20px;
-    transition: all 1s ease;
+    transition: all 0.5s ease;
+
+    outline: none;
 }
 
 .change-budget-btn{
@@ -309,13 +311,15 @@ li p {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    transition: all 1s ease;
+    transition: all 0.5s ease;
     font-size: 20px;
     cursor: pointer;
+    outline: none;
 }
+.change-budget-btn:active {outline: none;}
 
 .change-budget-label {
-    transition: all 1s ease;
+    transition: all 0.5s ease;
     width: 40vw;
     white-space: nowrap;
     overflow: hidden;
@@ -325,7 +329,7 @@ li p {
 }
 .fa-arrow-right {
     transition-property: all;
-    transition-duration: 1s;
+    transition-duration: 0.5s;
     transition-timing-function: cubic-bezier(.63,.75,.16,1.56);
     transform: rotate(0deg);
 }
