@@ -433,7 +433,12 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
     -webkit-appearance: none;
     margin: 0;
 }
- 
+ input, button{
+     outline: none;
+ }
+ input:active, button:active {
+     outline:none;
+ }
 input[type="number"] {
     -moz-appearance: textfield;
 }
