@@ -11,6 +11,10 @@ const changeBudgetBtnArrow = document.querySelector('.fa-arrow-right');
 const expenseNameVal = document.querySelector('.expense-name-val');
 const expenseAmtVal = document.querySelector('.expense-amt-val');
 const addExpenseBtn = document.querySelector('.add-expense-btn');
+const addExpenseBtn = document.querySelector('.ex-name');
+const addExpenseBtn = document.querySelector('.ex-amt');
+const addExpenseBtn = document.querySelector('.add-expense-btn');
+const addExpenseBtn = document.querySelector('.add-expense-btn');
 
 
 
