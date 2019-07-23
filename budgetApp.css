@@ -139,8 +139,6 @@ li p {
     width: 100px;
     min-height: 100px;
     border-top: 2px solid white;
-    /* border-left: 2px solid white; */
-    /* border-radius: 80% 0 0 0 ; */
     box-shadow: -1px -1px 5px rgb(255, 255, 255);
 }
 .add-box {
@@ -422,11 +420,6 @@ li p {
 }
 
 
-
-
-
-
-
 @keyframes trashAnimation {
     0% {
         transform: rotate(0deg);
@@ -446,6 +439,34 @@ li p {
         color: rgba(255, 13, 13, 0.74)
     }
 }
+
+.empty-list {
+    position: fixed;
+    color: white;
+    font-size: 50px;
+    opacity: 0.5;
+    text-shadow: 1px 1px 2px rgb(34, 33, 33);
+}
+
+.empty-list-animation {
+    animation: emptyList 1s cubic-bezier(0.23, 1, 0.320, 1) infinite;
+}
+@keyframes emptyList {
+    0%{
+        width: 100px;
+        height: 100px;
+    }
+    50% {
+        width: 150px;
+        height: 150px;
+    }
+    100%{
+        width: 100px;
+        height: 100px;
+    }
+}
+
+
 /* hide arrows of number input */
 input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;

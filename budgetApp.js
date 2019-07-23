@@ -11,12 +11,16 @@ const changeBudgetBtnArrow = document.querySelector('.fa-arrow-right');
 const expenseNameVal = document.querySelector('.expense-name-val');
 const expenseAmtVal = document.querySelector('.expense-amt-val');
 const addExpenseBtn = document.querySelector('.add-expense-btn');
-const addExpenseBtn = document.querySelector('.ex-name');
-const addExpenseBtn = document.querySelector('.ex-amt');
-const addExpenseBtn = document.querySelector('.add-expense-btn');
-const addExpenseBtn = document.querySelector('.add-expense-btn');
+const exName = document.querySelector('.ex-name');
+const exAmt = document.querySelector('.ex-amt');
+const budgetDisplay = document.querySelector('.budget');
+const expenseDisplay = document.querySelector('.expense');
+const balanceDisplay = document.querySelector('.balance');
+const list = document.querySelector('ul');
+const emptyList = document.querySelector('.empty-list');
 
 
+var id = 1, store = [];
 
 
 //change the background colour
@@ -52,7 +56,22 @@ function hideitem() {
 
 }
 
-trash.addEventListener('click', hideitem)
+if (trash !== null) {
+    trash.addEventListener('click', hideitem)
+    
+}
+
+//if list it empty 
+if (list.innerHTML == "") {
+    emptyList.classList.remove("invisible")
+    addBox.classList.add("empty-list-animation")
+    addBox.addEventListener('click', () =>{
+    emptyList.classList.add("invisible")
+    addBox.classList.remove("empty-list-animation")
+        
+    })
+}
+
 
 function openDisplay() {
     if (addBoxOpt.classList.contains('animate-add-box-open')) {
@@ -74,6 +93,21 @@ function changeBudget() {
     changeBudgetLabel.classList.toggle('width-0');
     changeBudgetBtn.classList.toggle('width-20vw');
     changeBudgetBtnArrow.classList.toggle('rotate-90');
+
+    
+    if (changeBudgetInput.value !== "") {
+        // update budget 
+        const budget = Number(changeBudgetInput.value);
+        budgetDisplay.innerHTML = budget;
+
+        // update balance
+        const expense = Number(expenseDisplay.innerHTML);
+        balanceDisplay.innerHTML = budget - expense;
+
+        changeBudgetInput.value = "";
+        
+    }else return
+    
 }
 
 changeBudgetBtn.addEventListener('click', changeBudget);
@@ -82,6 +116,7 @@ changeBudgetBtn.addEventListener('click', changeBudget);
 //when add expense btn is clicked
 
 function addExpense() {
+
     const btnText = addExpenseBtn.innerHTML;
     if (expenseNameVal.value == "" || expenseAmtVal.value == "") {
         addExpenseBtn.innerHTML = `<p>!!</P>`
@@ -90,11 +125,82 @@ function addExpense() {
             addExpenseBtn.innerHTML = btnText;
         },2000);
     }else {
+        const expenseName =  expenseNameVal.value;
+        const expenseAmt = Number(expenseAmtVal.value);
+
+        //---update expense---
+        let temp = Number(expenseDisplay.innerHTML) + expenseAmt;
+        expenseDisplay.innerHTML = temp;
+        //---update balance---
+        let temp2 = Number(balanceDisplay.innerHTML) - expenseAmt;
+        balanceDisplay.innerHTML = temp2;
+
+        var item = `
+                    <li>
+                    <i class="fas fa-trash fa-3x" id="${id}" job="delete"></i>
+                    <p class="ex-name" job="edit" id="${id}">${expenseName}</p>
+                    <p class="ex-amt" job="edit" id="${id}">${expenseAmt}</p>
+                    </li>
+                   `;
+        list.insertAdjacentHTML("beforeend", item);
+        
+
+        
         addExpenseBtn.innerHTML = `<p>Expense Added Successfully!</P>`
         setTimeout(() => {
             addExpenseBtn.innerHTML = btnText;
         },2000);
     }
+
 } 
 
 addExpenseBtn.addEventListener('click', addExpense)
+
+function deleteExpense(element) {
+    const elementIdNo = element.attributes.id.value;
+    // console.log(elementIdNo);
+    
+    const expenseToDelete = Number(element.parentNode.querySelector('.ex-amt').innerHTML);
+    // console.log(expenseToDelete);
+    temp = Number(expenseDisplay.innerHTML) - expenseToDelete;
+    expenseDisplay.innerHTML = temp;
+    temp2 = Number(balanceDisplay.innerHTML) + expenseToDelete;
+    balanceDisplay.innerHTML = temp2;
+    
+    element.parentNode.remove(element);
+}
+
+function editExpense(element) {
+    const expenseToEdit = Number(element.parentNode.querySelector('.ex-amt').innerHTML);
+    const name = element.parentNode.querySelector('.ex-name').innerHTML;
+    
+    openDisplay();
+    expenseNameVal.value = name;
+    expenseAmtVal.value = expenseToEdit;
+    expenseAmtVal.focus();
+    expenseAmtVal.select();
+    
+
+    deleteExpense(element);
+    
+}
+
+//---target dynamically created elements and edit or delete them---
+list.addEventListener('click', function(event){
+    const element = event.target;
+    const elementJob = element.attributes.job.value;
+    if (elementJob == "delete") {
+        deleteExpense(element);
+    }else if (elementJob == "edit") {
+        editExpense(element);
+    } 
+});
+
+
+
+
+
+
+
+
+
