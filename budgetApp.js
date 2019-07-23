@@ -48,6 +48,64 @@ document.documentElement.style.setProperty("--base", color);
 //     saif.classList.add('invisible')
 // },3000)
 
+
+//---load data from local storage---
+
+loadData();
+function loadData(){
+    var getstore =  JSON.parse(localStorage.getItem("storeExpense"));
+    // console.log(getstore);
+    if (getstore !== null) {
+        
+      getstore.forEach(elem => {
+        //   console.log(elem);
+          if (elem.trash===true) {
+              return;
+          }else{
+              store.push(elem);
+
+          }
+    
+      });
+
+    //   console.log(store);
+
+      //---load and display budget---
+      budgetDisplay.innerHTML = store[0].Budget;
+      balanceDisplay.innerHTML = store[0].Budget;
+      //---load and display, expenses, and balance---
+      //   console.log(store);
+      
+      let expensee=0;
+
+      store.forEach(elem => {
+        var item = `
+                     <li>
+                       <i class="fas fa-trash fa-3x" id="${elem.ID}" job="delete"></i>
+                       <p class="ex-name" job="edit" id="${elem.ID}">${elem.ExpenseName}</p>
+                       <p class="ex-amt" job="edit" id="${elem.ID}">${elem.ExpenseAmt}</p>
+                     </li>
+                   `;
+        list.insertAdjacentHTML("beforeend", item);
+
+        expensee += Number(elem.ExpenseAmt);
+        expenseDisplay.innerHTML = Number(expensee);
+        
+        balanceDisplay.innerHTML -= elem.ExpenseAmt;
+        // console.log(id);
+        
+        //---updating id---
+        if (elem.ID>= id) {
+            id = elem.ID;
+        }
+      });
+     id++;
+    //  console.log(id);
+     
+    }else return;
+};
+
+
 function hideitem() {
     li.classList.add('animateli');
     setTimeout(function(){
@@ -105,6 +163,14 @@ function changeBudget() {
         balanceDisplay.innerHTML = budget - expense;
 
         changeBudgetInput.value = "";
+
+        //---store current budget to local storage---
+        store.forEach(elem => {
+            elem.Budget = budget;
+        });
+        console.log(store);
+        
+        localStorage.setItem("storeExpense", JSON.stringify(store));
         
     }else return
     
@@ -144,6 +210,20 @@ function addExpense() {
                    `;
         list.insertAdjacentHTML("beforeend", item);
         
+        //---store in local storage---
+    
+        store.push({
+            "ExpenseName" : expenseName,
+            "ExpenseAmt" : expenseAmt,
+            "ID" : id,
+            "trash" : false,
+            "Budget" : Number(budgetDisplay.innerHTML)
+        });
+        // console.log(store);
+        
+        localStorage.setItem("storeExpense", JSON.stringify(store));
+    
+        id++;
 
         
         addExpenseBtn.innerHTML = `<p>Expense Added Successfully!</P>`
@@ -168,6 +248,18 @@ function deleteExpense(element) {
     balanceDisplay.innerHTML = temp2;
     
     element.parentNode.remove(element);
+
+    //---set trash to true in local storage---
+    var getstore = JSON.parse(localStorage.getItem("storeExpense"));
+    // console.log(getstore);
+    var index = getstore.findIndex((elem) => {
+        return elem.ID == elementIdNo;
+    })
+    // console.log(index);
+    getstore[index].trash = true;
+    // console.log(getstore);
+    store = getstore;
+    localStorage.setItem("storeExpense", JSON.stringify(getstore));
 }
 
 function editExpense(element) {
@@ -197,7 +289,7 @@ list.addEventListener('click', function(event){
 });
 
 
-
+9151409120
 
 
 
