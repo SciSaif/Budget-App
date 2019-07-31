@@ -44,10 +44,10 @@ document.documentElement.style.setProperty("--base", color);
 
 
 
-//Credits display
-// setTimeout(()=>{
-//     saif.classList.add('invisible')
-// },3000)
+// Credits display
+setTimeout(()=>{
+    saif.classList.add('invisible')
+},3000)
 
 
 //---load data from local storage---
@@ -127,18 +127,11 @@ if (trash !== null) {
 
 // if list it empty 
 function listEmpty() {
-    
-    if (list.innerHTML == "") {
-        console.log('in if');
-        
+    if (!list.innerHTML.includes("<li>")) {
+        // console.log('in if');
         emptyList.classList.remove("invisible")
         addBox.classList.add("empty-list-animation")
-        addBox.addEventListener('click', () =>{
-            console.log('in event listener');
-            emptyList.classList.add("invisible")
-            addBox.classList.remove("empty-list-animation")
-            
-        });
+        
     }
 }
 listEmpty();
@@ -157,7 +150,9 @@ function openDisplay() {
         addBoxOpt.classList.remove('invisible')
         addBoxOpt.classList.add('animate-add-box-open')
         addBoxOpt.classList.replace('animate-add-box-close','animate-add-box-open')
-
+        console.log('in event listener');
+        emptyList.classList.add("invisible")
+        addBox.classList.remove("empty-list-animation")
     }
 }
 
@@ -318,11 +313,11 @@ expenseAmtVal.addEventListener("focusout", ()=> {
 });
 expenseNameVal.addEventListener("focus", () =>{
     console.log('yes');
-    displayBox.classList.add("invisible2");
+    displayBox.classList.add("invisible");
     
 });
 expenseNameVal.addEventListener("focusout", ()=> {
-    displayBox.classList.remove("invisible2");
+    displayBox.classList.remove("invisible");
    
 });
 
