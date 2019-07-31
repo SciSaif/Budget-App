@@ -242,6 +242,10 @@ function addExpense() {
         setTimeout(() => {
             addExpenseBtn.innerHTML = btnText;
         },2000);
+
+        //empty inputs
+        expenseAmtVal.value = "";
+        expenseNameVal.value = "";
     }
 
 } 
@@ -321,6 +325,23 @@ expenseNameVal.addEventListener("focusout", ()=> {
    
 });
 
+
+//enter to move to next input 
+expenseNameVal.addEventListener("keyup", function(event) {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      expenseAmtVal.focus();
+      expenseAmtVal.select();
+    }
+  }); 
+expenseAmtVal.addEventListener("keyup", function(event) {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      addExpenseBtn.click();
+    }
+  }); 
 
 
 
