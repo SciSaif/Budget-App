@@ -18,6 +18,7 @@ const expenseDisplay = document.querySelector('.expense');
 const balanceDisplay = document.querySelector('.balance');
 const list = document.querySelector('ul');
 const emptyList = document.querySelector('.empty-list');
+const displayBox = document.querySelector('.display-box');
 
 
 var id = 1, store = [];
@@ -63,7 +64,7 @@ function loadData(){
               return;
           }else{
               store.push(elem);
-
+              
           }
     
       });
@@ -71,8 +72,11 @@ function loadData(){
     //   console.log(store);
 
       //---load and display budget---
+      if (store.length !== 0) {
+          
       budgetDisplay.innerHTML = store[0].Budget;
       balanceDisplay.innerHTML = store[0].Budget;
+
       //---load and display, expenses, and balance---
       //   console.log(store);
       
@@ -98,10 +102,12 @@ function loadData(){
         if (elem.ID>= id) {
             id = elem.ID;
         }
+
       });
+
      id++;
     //  console.log(id);
-     
+    }
     }else return;
 };
 
@@ -119,28 +125,39 @@ if (trash !== null) {
     
 }
 
-//if list it empty 
-if (list.innerHTML == "") {
-    emptyList.classList.remove("invisible")
-    addBox.classList.add("empty-list-animation")
-    addBox.addEventListener('click', () =>{
-    emptyList.classList.add("invisible")
-    addBox.classList.remove("empty-list-animation")
+// if list it empty 
+function listEmpty() {
+    
+    if (list.innerHTML == "") {
+        console.log('in if');
         
-    })
+        emptyList.classList.remove("invisible")
+        addBox.classList.add("empty-list-animation")
+        addBox.addEventListener('click', () =>{
+            console.log('in event listener');
+            emptyList.classList.add("invisible")
+            addBox.classList.remove("empty-list-animation")
+            
+        });
+    }
 }
+listEmpty();
+
 
 
 function openDisplay() {
     if (addBoxOpt.classList.contains('animate-add-box-open')) {
         addBoxOpt.classList.replace('animate-add-box-open','animate-add-box-close')
         addBoxOpt.classList.add('invisible');
+        listEmpty();
+
     }else
     {
 
         addBoxOpt.classList.remove('invisible')
         addBoxOpt.classList.add('animate-add-box-open')
         addBoxOpt.classList.replace('animate-add-box-close','animate-add-box-open')
+
     }
 }
 
@@ -248,6 +265,8 @@ function deleteExpense(element) {
     balanceDisplay.innerHTML = temp2;
     
     element.parentNode.remove(element);
+    listEmpty();
+
 
     //---set trash to true in local storage---
     var getstore = JSON.parse(localStorage.getItem("storeExpense"));
@@ -271,7 +290,6 @@ function editExpense(element) {
     expenseAmtVal.value = expenseToEdit;
     expenseAmtVal.focus();
     expenseAmtVal.select();
-    
 
     deleteExpense(element);
     
@@ -289,7 +307,25 @@ list.addEventListener('click', function(event){
 });
 
 
-9151409120
+expenseAmtVal.addEventListener("focus", () =>{
+    console.log('yes');
+    displayBox.classList.add("invisible");
+    
+});
+expenseAmtVal.addEventListener("focusout", ()=> {
+    displayBox.classList.remove("invisible");
+   
+});
+expenseNameVal.addEventListener("focus", () =>{
+    console.log('yes');
+    displayBox.classList.add("invisible2");
+    
+});
+expenseNameVal.addEventListener("focusout", ()=> {
+    displayBox.classList.remove("invisible2");
+   
+});
+
 
 
 
